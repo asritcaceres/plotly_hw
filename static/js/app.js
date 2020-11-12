@@ -40,6 +40,7 @@ var layout ={
     xaxis: {title: "OTU IDs"},
     yaxis: {title: "OTU Values"},
 }
+
 Plotly.newPlot("bar", trace, layout)
 
 //Creating bubble chart
@@ -57,9 +58,12 @@ var trace1 = [{
   var layout1 = {
     title: "Values of All Samples",
     xaxis: {title: "OTU IDs"},
-    yaxis:{title: "Values of OTU"}
+    yaxis:{title: "Values of OTU"},
+    height: 400,
+    width: 600,
 
   };
+
   
   Plotly.newPlot('bubble', trace1, layout1);
 
@@ -73,7 +77,7 @@ var trace1 = [{
 init();
 
 //update to take place on DOM
-d3.selectAll("#selDataset").on("click", updatePlotly);
+d3.selectAll("#selDataset").on("change", updatePlotly);
 function updatePlotly() {
     //select dropdown
     dropdownMenu = d3.select("#selDataset");
@@ -108,17 +112,20 @@ function updatePlotly() {
     Plotly.restyle("bubble", "marker.size", [sampleValues])
     Plotly.restyle("bubble", "marker.color", [sampleID])
 
+    
+
     //update demographics
-    newdemographics = data.metadata.filter(info=>info.id===dropdownMenuValue)[0]
-    //clear inputs
-    d3.select("#sample-metadata").html("");
+    var newdemographics = data.metadata.filter(info => info.id==dropdownMenuValue)[0];
+     //clear inputs
+     d3.select("#sample-metadata").html("");
 
     // Display the demographics information of each new input
     Object.entries(newdemographics).forEach(([key,value])=>
     d3.select("#sample-metadata").append("div").text(`${key}: ${value}`));
-  
-updatePlotly();
+
+    updatePlotly();
 }
+
 
 })
 
