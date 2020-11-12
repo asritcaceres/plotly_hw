@@ -39,6 +39,7 @@ var layout ={
     title: "Top OTU Values",
     xaxis: {title: "OTU IDs"},
     yaxis: {title: "OTU Values"},
+    
 }
 
 Plotly.newPlot("bar", trace, layout)
@@ -122,10 +123,7 @@ function updatePlotly() {
     // Display the demographics information of each new input
     Object.entries(newdemographics).forEach(([key,value])=>
     d3.select("#sample-metadata").append("div").text(`${key}: ${value}`));
-
-    updatePlotly();
 }
-
 
 })
 
