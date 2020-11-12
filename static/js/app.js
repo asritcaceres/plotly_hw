@@ -68,6 +68,40 @@ var trace1 = [{
   
   Plotly.newPlot('bubble', trace1, layout1);
 
+//   var data2 = [
+//     {
+//       domain: { x: defaultID, y:  },
+//       indicator: "angular",
+//       title: { text: "Belly Button Washing Frequency/Scrubs per Week" },
+//       type: "indicator",
+//       mode: "gauge+number",
+//       gauge: {
+//         axis: { range: [0, 9] },
+//         steps: [
+//           { range: [0,1], color: "beige"},
+//           { range: [1,2], color: "lightgray" },
+//           { range: [2, 3], color: "ligh" },
+//           { range: [3, 4], color: "lightyellow" },
+//           { range: [4, 5], color: "yellowgreen" },
+//           { range: [5, 6], color: "lightgreen" },
+//           { range: [6, 7], color: "green" },
+//           { range: [7,8], color: "green" },
+//           { range: [8,9], color: "darkgreen" }
+//         ],
+//       }
+//     }
+//   ];
+  
+//   var layout2 = { width: 600, height: 450, margin: { t: 0, b: 0 } };
+//   Plotly.newPlot('gauge', data2, layout2);
+
+
+
+
+
+
+
+
   //add default demographics
   var demographics = data.metadata.filter(info=>info.id===940)[0]
   //console.log(demographics)
