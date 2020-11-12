@@ -51,7 +51,7 @@ var trace1 = [{
     text: defaultLabel,
     mode: "markers",
     marker:{
-        size:defaultValue,
+        size: defaultValue,
         color: defaultID
     }
 }]
@@ -60,8 +60,8 @@ var trace1 = [{
     title: "Values of All Samples",
     xaxis: {title: "OTU IDs"},
     yaxis:{title: "Values of OTU"},
-    height: 400,
-    width: 600,
+    height: 800,
+    width: 1000,
 
   };
 
