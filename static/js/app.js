@@ -27,7 +27,7 @@ function init(){
     var defaultOTUIDTop = defaultID.slice(0,10);
     // console.log(defaultSampleTop);
     // console.log(defaultSampleTopdefaultLabelsTop);
-    // console.log(defaultOTUIDTop)
+    console.log(defaultOTUIDTop)
 
     
   //add default demographics
@@ -40,14 +40,15 @@ function init(){
 // creating Bar graph
 var trace = [{
     type: "bar",
-    x: defaultOTUIDTop,
-    y:defaultSampleTop,
+    x: defaultSampleTop,
+    y:defaultOTUIDTop.map(id=> `OTU ${id}`),
+    text: defaultLabelsTop,
     orientation: "h"
 }]
 var layout ={
-    title: "Top OTU Values",
-    xaxis: {title: "OTU IDs"},
-    yaxis: {title: "OTU Values"},
+    title: "Top 10 OTUs for Sample",
+    xaxis: {title: "Bacteria Value"},
+    yaxis: {title: "OTU ID"},
     
 }
 
@@ -66,9 +67,9 @@ var trace1 = [{
 }]
   
   var layout1 = {
-    title: "Values of All Samples",
+    title: "Values of the Bacteria in Sample",
     xaxis: {title: "OTU IDs"},
-    yaxis:{title: "Values of OTU"},
+    yaxis:{title: "Bacteria Values"},
     height: 800,
     width: 1000,
 
@@ -137,7 +138,8 @@ function updatePlotly() {
 
     //update charts
     Plotly.restyle("bar","x", [sampleValuesTop]);
-    Plotly.restyle("bar", "y", [sampleIDTop]);
+    Plotly.restyle("bar", "y", [sampleIDTop.map(id=> `OTU ${id}`)]);
+    Plotly.restyle("bar","text", [sampleLabelTop])
 
 
     Plotly.restyle("bubble", "x", [sampleID]);
